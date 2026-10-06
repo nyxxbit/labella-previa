@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Labella Disk Pizza · Catanduva</title>
+<meta name="description" content="Pizza boa + preço justo, simples assim. Combos a partir de R$ 55. Monte o pedido no site e ele chega pronto no WhatsApp da Labella. Terça a domingo, das 18h às 23h.">
+<meta name="theme-color" content="#840507">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Labella Disk Pizza · Catanduva">
+<meta property="og:description" content="Pizza boa + preço justo, simples assim. Monte o pedido e mande pronto pelo WhatsApp.">
+<!-- Versão de prévia (GitHub Pages): fora do Google e com a
+     imagem de compartilhamento em endereço completo, pro WhatsApp mostrar. -->
+<meta name="robots" content="noindex">
+<meta property="og:url" content="https://nyxxbit.github.io/labella-previa/">
+<meta property="og:image" content="https://nyxxbit.github.io/labella-previa/img/compartilhar.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<link rel="icon" href="img/logo-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="img/logo-180.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&family=DM+Mono:wght@400;500&family=Figtree:wght@400..700&display=swap">
+<link rel="stylesheet" href="estilo.css?v=4">
+<!-- A comanda, a folha de opções e a barra do celular dependem de JS. Sem
+     ele esta classe não entra: a comanda e a barra somem, e combos e
+     cardápio mostram o aviso com o WhatsApp e o telefone. -->
+<script>document.documentElement.classList.add('js');</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  "name": "Labella Disk Pizza",
+  "servesCuisine": "Pizza",
+  "telephone": "+55 17 3525-3232",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "R. Parati, 1178",
+    "addressLocality": "Catanduva",
+    "addressRegion": "SP",
+    "addressCountry": "BR"
+  },
+  "openingHoursSpecification": [{
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+    "opens": "18:00",
+    "closes": "23:00"
+  }],
+  "sameAs": ["https://www.instagram.com/labelladiskpizza/"]
+}
+</script>
+</head>
+<body>
+
+<a class="pular" href="#cardapio">Pular para o cardápio</a>
+
+<!-- ============ Topo ============
+     Diz se dá pra pedir agora. No celular a comanda mora na barra de baixo,
+     onde o polegar está; no computador, o botão daqui leva até ela. -->
+<header class="topo">
+  <!-- A logo horizontal que o cliente mandou (06/10), sem o fundo: o fundo
+       do topo é o mesmo vinho dela. -->
+  <a class="topo-marca" href="#inicio" aria-label="Labella Disk Pizza, início">
+    <img src="img/logo-h-96.webp" width="79" height="44" alt="">
+  </a>
+  <nav class="topo-menu" aria-label="Seções">
+    <a href="#combos">Combos</a>
+    <a href="#cardapio">Cardápio</a>
+    <a href="#disk">Onde fica</a>
+  </nav>
+  <p class="situacao" data-situacao aria-live="polite"></p>
+  <a class="topo-ligar" href="tel:+551735253232" aria-label="Ligar para a Labella, (17) 3525-3232">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 3.5h2.6l1.5 4.2-2 1.3a12.4 12.4 0 0 0 6.3 6.3l1.3-2 4.2 1.5v2.6a2.1 2.1 0 0 1-2.2 2.1A16.5 16.5 0 0 1 4.5 5.7a2.1 2.1 0 0 1 2.1-2.2Z"/></svg>
+    <span>(17) 3525-3232</span>
+  </a>
+  <a class="topo-comanda" href="#comanda" data-ir-comanda>
+    <span>Comanda</span>
+    <b data-total-curto>R$ 0</b>
+  </a>
+</header>
+
+<main id="conteudo">
+
+  <!-- ===================== ABERTURA =====================
+       A frase é a da bio deles, com o "+" que já é soma. Do lado, a bancada
+       de verdade (foto do Instagram deles, 19/08) e, em cima dela, a via
+       amarela da comanda com o combo mais em conta escrito como conta. -->
+  <section class="abertura" id="inicio" aria-labelledby="h-inicio">
+    <div class="abertura-wrap wrap">
+      <div class="abertura-texto">
+        <p class="sobretitulo">Disk pizza · Nova Catanduva</p>
+        <h1 id="h-inicio">
+          <span class="h1-linha">Pizza boa</span>
+          <span class="h1-linha"><span class="mais">+</span> preço justo,</span>
+          <span class="h1-linha">simples assim!</span>
+        </h1>
+        <p class="abertura-sub">Monte seu pedido aqui. A comanda soma tudo e chega pronta no WhatsApp da Labella.</p>
+        <div class="acoes">
+          <a class="btn btn-queijo" href="#combos">Montar meu pedido</a>
+          <a class="btn btn-linha" href="tel:+551735253232">Ligar (17) 3525-3232</a>
+        </div>
+        <p class="quarta" id="quarta" hidden></p>
+      </div>
+
+      <div class="mesa">
+        <figure class="mesa-foto">
+          <img src="img/bancada-800.webp"
+               srcset="img/bancada-480.webp 480w, img/bancada-800.webp 800w, img/bancada-1200.webp 1200w"
+               sizes="(min-width: 900px) 38vw, calc(100vw - 32px)"
+               width="1200" height="1500" fetchpriority="high"
+               alt="Três pizzas da Labella abertas na caixa, em cima da bancada: duas salgadas e uma de chocolate com zigue-zague de chocolate branco">
+        </figure>
+        <a class="via" href="#combos" data-combo="combo-1" id="viaAbertura">
+          <span class="via-papel picotado">
+            <span class="via-rot">O combo mais em conta</span>
+            <span class="via-soma" data-parcelas="combo-1">
+              <span class="via-l">1 grande</span>
+              <span class="via-l"><i>+</i> Devito 2 L</span>
+            </span>
+            <span class="via-res"><i>=</i> <b data-preco-combo="combo-1">R$ 55</b></span>
+            <span class="via-acao">Escolher o sabor</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== COMBOS =====================
+       Cada combo é uma soma com o resultado. Uma conta por linha, na via
+       amarela, sem cartão. O combo 4 só entra quando tiver preço. -->
+  <section class="combos" id="combos" aria-labelledby="h-combos">
+    <div class="combos-wrap wrap">
+      <header class="secao-cab">
+        <p class="sobretitulo">Combos</p>
+        <h2 id="h-combos">A conta já vem feita.</h2>
+        <p>Você escolhe o sabor da grande. O refri e o resto já estão somados.</p>
+      </header>
+      <ol class="contas" id="contas"></ol>
+      <noscript>
+        <p class="sem-js">Os combos e a comanda precisam de JavaScript. Pede pelo WhatsApp
+          <a href="https://wa.me/5517997337599">(17) 99733-7599</a> ou liga no
+          <a href="tel:+551735253232">(17) 3525-3232</a>.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ===================== CARDÁPIO =====================
+       Separado pelo preço, porque preço justo é o argumento da marca. A busca
+       acha por ingrediente: quem quer catupiry, quem foge de cebola. -->
+  <section class="cardapio" id="cardapio" aria-labelledby="h-cardapio">
+    <div class="cardapio-wrap wrap">
+      <div class="cardapio-cab">
+        <header class="secao-cab">
+          <p class="sobretitulo">Cardápio</p>
+          <h2 id="h-cardapio">Grande ou broto. Inteira ou meio a meio.</h2>
+          <p>Separadas pelo preço da grande. Meio a meio só na grande, pelo preço do sabor mais caro.</p>
+        </header>
+        <!-- O meio a meio de verdade, da caixa deles (Instagram, 19/08). -->
+        <figure class="cardapio-foto">
+          <img src="img/meio-a-meio-800.webp"
+               srcset="img/meio-a-meio-480.webp 480w, img/meio-a-meio-800.webp 800w, img/meio-a-meio-1200.webp 1200w"
+               sizes="(min-width: 860px) 704px, calc(100vw - 32px)"
+               width="1200" height="900" loading="lazy"
+               alt="Pizza meio a meio da Labella na caixa: uma metade de calabresa com cebola e tomate, a outra de queijo com tomate e azeitona">
+          <figcaption>Meio a meio: cada metade, um sabor.</figcaption>
+        </figure>
+      </div>
+
+      <div class="busca">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+        <label class="so-leitor" for="busca">Procurar sabor ou ingrediente</label>
+        <input id="busca" type="search" placeholder="Procurar sabor ou ingrediente" autocomplete="off" enterkeyhint="search">
+      </div>
+      <!-- id diferente de qualquer âncora de propósito: o rail não pode
+           roubar o pulo do link #cardapio. -->
+      <nav class="faixas" id="faixas" aria-label="Partes do cardápio"></nav>
+      <p class="contagem" id="contagem" aria-live="polite"></p>
+      <div class="lista" id="lista"></div>
+
+      <noscript>
+        <p class="sem-js">Pra montar o pedido aqui o site precisa de JavaScript. Pede pelo WhatsApp
+          <a href="https://wa.me/5517997337599">(17) 99733-7599</a> ou liga no
+          <a href="tel:+551735253232">(17) 3525-3232</a>.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- ===================== COMANDA =====================
+       No computador fica presa do lado do cardápio, papel em cima do balcão.
+       No celular vira a folha que sobe da barra de baixo. -->
+  <aside class="comanda" id="comanda" aria-labelledby="h-comanda">
+    <div class="comanda-folha" id="comandaFolha">
+      <div class="comanda-papel picotado" id="comandaPapel">
+        <button class="fechar comanda-fechar" type="button" data-fechar-comanda aria-label="Fechar comanda">×</button>
+        <header class="comanda-cab">
+          <h2 id="h-comanda" tabindex="-1">Comanda</h2>
+          <p class="comanda-quem"><span>Labella Disk Pizza</span> <span data-quando></span></p>
+        </header>
+        <p class="comanda-cols" aria-hidden="true"><span>Qtd.</span><span>Pedido</span><span>R$</span></p>
+        <ol class="linhas" id="linhas" aria-label="Itens da comanda"></ol>
+        <div class="comanda-vazia" id="vazia">
+          <p>Em branco por enquanto.</p>
+          <p>Escolha um combo ou uma pizza e a comanda começa a somar.</p>
+        </div>
+
+        <div class="comanda-resto" id="comandaResto" hidden>
+          <p class="total"><span>Total dos itens</span> <b id="total">R$ 0,00</b></p>
+          <p class="total-nota">A taxa de entrega a Labella confirma no WhatsApp.</p>
+          <p class="quarta-nota" id="quartaNota" hidden>Hoje é Quarta em Dobro: com pizza no pedido, o broto de chocolate vem de brinde. A Labella confirma no WhatsApp.</p>
+
+          <form class="ficha" id="ficha" novalidate>
+            <label class="campo"><span>Seu nome</span>
+              <input name="nome" type="text" autocomplete="name" required>
+            </label>
+
+            <fieldset class="campo">
+              <legend>Receber</legend>
+              <div class="opcoes" id="opcoesReceber"></div>
+            </fieldset>
+
+            <div class="entrega" id="camposEntrega">
+              <label class="campo"><span>Rua e número</span>
+                <input name="endereco" type="text" autocomplete="address-line1">
+              </label>
+              <label class="campo"><span>Bairro</span>
+                <input name="bairro" type="text" autocomplete="address-level3">
+              </label>
+              <label class="campo"><span>Referência <small>se quiser</small></span>
+                <input name="referencia" type="text" placeholder="Perto de quê?">
+              </label>
+            </div>
+
+            <fieldset class="campo">
+              <legend>Pagamento</legend>
+              <div class="opcoes" id="opcoesPagamento"></div>
+            </fieldset>
+
+            <label class="campo" id="campoTroco" hidden><span>Troco pra quanto?</span>
+              <input name="troco" type="text" inputmode="decimal" placeholder="Ex.: 100">
+            </label>
+
+            <label class="campo"><span>Observação <small>se quiser</small></span>
+              <textarea name="obs" rows="2"></textarea>
+            </label>
+          </form>
+
+          <p class="aviso-hora" id="avisoHora" hidden></p>
+          <button class="btn btn-molho btn-cheio" type="button" id="mandar">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.3 17.1L2 22l5-1.3A11 11 0 0 0 20.5 3.5Z"/></svg>
+            Mandar no WhatsApp
+          </button>
+          <button class="limpar" type="button" id="limpar">Limpar comanda</button>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ===================== DISK =====================
+       O fixo é a origem do nome. Quem prefere ligar, liga; quem chegou até
+       aqui ainda sabe onde fica e até que horas. -->
+  <section class="disk" id="disk" aria-labelledby="h-disk">
+    <div class="disk-wrap wrap">
+      <p class="sobretitulo">Prefere ligar?</p>
+      <h2 id="h-disk"><a href="tel:+551735253232"><span class="ddd">(17)</span> <span class="num">3525-3232</span></a></h2>
+
+      <!-- Os dados da casa como o pé da comanda: rótulo impresso e o valor. -->
+      <dl class="disk-dados">
+        <div>
+          <dt>Horário</dt>
+          <dd>
+            <span>Terça a domingo, das 18h às 23h. Segunda, fechado.</span>
+            <span class="situacao" data-situacao-longa></span>
+          </dd>
+        </div>
+        <div>
+          <dt>Endereço</dt>
+          <dd>
+            <span>R. Parati, 1178, Nova Catanduva, Catanduva</span>
+            <a class="link-seta" href="https://www.google.com/maps/search/?api=1&amp;query=R.%20Parati%2C%201178%2C%20Nova%20Catanduva%2C%20Catanduva%20SP" target="_blank" rel="noopener">Abrir no mapa</a>
+          </dd>
+        </div>
+        <div>
+          <dt>WhatsApp</dt>
+          <dd><a href="https://wa.me/5517997337599" data-zap target="_blank" rel="noopener">(17) 99733-7599</a></dd>
+        </div>
+        <div>
+          <dt>Instagram</dt>
+          <dd><a href="https://www.instagram.com/labelladiskpizza/" target="_blank" rel="noopener">@labelladiskpizza</a></dd>
+        </div>
+      </dl>
+
+      <div class="disk-fecho">
+        <p>Já pediu a sua?</p>
+        <a class="btn btn-queijo" href="#combos">Montar meu pedido</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <img src="img/logo-h-160.webp" width="115" height="64" alt="">
+  <p>Labella Disk Pizza · R. Parati, 1178 · Nova Catanduva, Catanduva/SP</p>
+  <p class="rodape-pyxel">Site feito pela <a href="https://pyxeldigital.pages.dev" target="_blank" rel="noopener">Pyxel Digital</a></p>
+</footer>
+
+<!-- Barra do celular: a comanda dobrada, sempre à mão. -->
+<div class="barra" id="barra">
+  <button class="barra-btn" type="button" data-abrir-comanda aria-controls="comanda">
+    <span class="barra-rot">Comanda</span>
+    <span class="barra-info" id="barraInfo">em branco</span>
+    <b class="barra-total" id="barraTotal"></b>
+    <span class="barra-seta" aria-hidden="true">↑</span>
+  </button>
+</div>
+
+<!-- ============ Folha de opções ============
+     Abre ao escolher combo ou pizza: sabor, meio a meio, borda, observação. -->
+<div class="veu" id="veu" hidden></div>
+<section class="folha" id="folha" role="dialog" aria-modal="true" aria-labelledby="folhaTitulo" hidden>
+  <button class="fechar" type="button" data-fechar-folha aria-label="Fechar">×</button>
+  <div class="folha-rolagem" id="folhaRolagem">
+    <p class="sobretitulo" id="folhaSobre"></p>
+    <h2 id="folhaTitulo"></h2>
+    <p class="folha-desc" id="folhaDesc"></p>
+    <div id="folhaCorpo"></div>
+  </div>
+  <div class="folha-pe">
+    <div class="qtd" role="group" aria-label="Quantidade">
+      <button type="button" id="menos" aria-label="Um a menos">−</button>
+      <output id="qtd" aria-live="polite">1</output>
+      <button type="button" id="mais" aria-label="Um a mais">+</button>
+    </div>
+    <button class="btn btn-molho btn-cheio" type="button" id="anotar">Anotar</button>
+  </div>
+</section>
+
+<div class="aviso" id="aviso" role="status" aria-live="polite"></div>
+<p class="so-leitor" id="anuncio" aria-live="polite"></p>
+
+<script src="dados.js?v=3"></script>
+<script src="app.js?v=5"></script>
+</body>
+</html>
