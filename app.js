@@ -893,6 +893,15 @@
   /* ---------------------------------------------------------- partida */
 
   $$('[data-zap]').forEach(function (a) { a.href = linkZap('Oi, Labella! Vim pelo site.'); });
+
+  /* "Borda de catupiry grátis" só fica na tela enquanto o dados.js tiver uma
+     borda de preço zero; o preço da paga sai do mesmo lugar. */
+  var temBordaGratis = L.bordas.some(function (b) { return !b.preco; });
+  $$('[data-brinde]').forEach(function (el) { el.hidden = !temBordaGratis; });
+  $$('[data-preco-borda]').forEach(function (el) {
+    var b = BORDA[el.getAttribute('data-preco-borda')];
+    if (b) el.textContent = reaisCurto(b.preco);
+  });
   $('#busca').addEventListener('input', pintarCardapio);
 
   montarVia();

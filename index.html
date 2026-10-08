@@ -21,7 +21,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@100..125,700..900&family=DM+Mono:wght@400;500&family=Figtree:wght@400..700&display=swap">
-<link rel="stylesheet" href="estilo.css?v=4">
+<link rel="stylesheet" href="estilo.css?v=5">
 <!-- A comanda, a folha de opções e a barra do celular dependem de JS. Sem
      ele esta classe não entra: a comanda e a barra somem, e combos e
      cardápio mostram o aviso com o WhatsApp e o telefone. -->
@@ -95,6 +95,10 @@
           <span class="h1-linha">simples assim!</span>
         </h1>
         <p class="abertura-sub">Monte seu pedido aqui. A comanda soma tudo e chega pronta no WhatsApp da Labella.</p>
+        <!-- Mais uma parcela na soma da marca: a borda de catupiry não é
+             cobrada (cliente, 08/10). Some sozinha se o dados.js deixar de
+             ter borda de preço zero. -->
+        <p class="brinde" data-brinde><span class="mais">+</span> <span>Borda de catupiry grátis</span></p>
         <div class="acoes">
           <a class="btn btn-queijo" href="#combos">Montar meu pedido</a>
           <a class="btn btn-linha" href="tel:+551735253232">Ligar (17) 3525-3232</a>
@@ -154,6 +158,7 @@
           <p class="sobretitulo">Cardápio</p>
           <h2 id="h-cardapio">Grande ou broto. Inteira ou meio a meio.</h2>
           <p>Separadas pelo preço da grande. Meio a meio só na grande, pelo preço do sabor mais caro.</p>
+          <p class="brinde" data-brinde><span class="mais">+</span> <span>Borda de catupiry grátis <small>na grande salgada. A de cheddar sai por <span data-preco-borda="cheddar">R$ 7</span>.</small></span></p>
         </header>
         <!-- O meio a meio de verdade, da caixa deles (Instagram, 19/08). -->
         <figure class="cardapio-foto">
@@ -339,6 +344,6 @@
 <p class="so-leitor" id="anuncio" aria-live="polite"></p>
 
 <script src="dados.js?v=4"></script>
-<script src="app.js?v=6"></script>
+<script src="app.js?v=7"></script>
 </body>
 </html>

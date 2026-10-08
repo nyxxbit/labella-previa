@@ -268,7 +268,17 @@ h2[tabindex="-1"]:focus { outline: none; }
 /* ---------------------------------------------------------------- cabeçalho de seção */
 .secao-cab { display: grid; gap: 12px; justify-items: start; margin-bottom: clamp(28px, 5vw, 48px); }
 .secao-cab h2 { font-size: clamp(2.1rem, 7vw, 4.25rem); font-stretch: 112%; line-height: .95; letter-spacing: -.025em; max-width: 16ch; }
-.secao-cab > p:last-child { max-width: 46ch; color: var(--tinta-2); font-size: clamp(1rem, 2vw, 1.12rem); }
+.secao-cab > p:not(.sobretitulo):not(.brinde) { max-width: 46ch; color: var(--tinta-2); font-size: clamp(1rem, 2vw, 1.12rem); }
+
+/* A borda grátis entra como mais uma parcela na soma da marca, com o "+".
+   No papel o "+" vai no vinho: o amarelo sobre o branco dá 1,9:1. */
+.brinde {
+  display: flex; align-items: baseline; gap: .4em;
+  font: 800 clamp(1.1rem, 3.4vw, 1.35rem)/1.25 var(--display); font-stretch: 100%;
+}
+.brinde .mais { flex: none; color: var(--queijo); font-size: 1.3em; line-height: 1; }
+.brinde small { display: block; margin-top: 3px; font: 500 .95rem/1.4 var(--sans); color: var(--tinta-2); }
+.cardapio .brinde .mais { color: var(--molho); }
 
 /* ---------------------------------------------------------------- combos */
 .combos {
