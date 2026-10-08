@@ -373,11 +373,17 @@
       '<p class="op-falta" data-falta="' + nome + '" hidden>Escolha o sabor.</p></fieldset>';
   }
 
+  /* Borda: a primeira da lista já vem marcada (a de catupiry, que não é
+     cobrada). Não existe "sem borda" (pedido do cliente, 08/10). O valor vai
+     com centavos, como ele pediu: R$ 0,00 e +R$ 7,00. */
+  function bordaPadrao() { return L.bordas.length ? L.bordas[0].id : null; }
+
   function grupoBorda() {
     if (!L.bordas.length) return '';
-    return grupoChips('Borda', 'borda', [{ valor: 'sem', rot: 'Sem borda' }].concat(L.bordas.map(function (b) {
-      return { valor: b.id, rot: b.nome.replace(/^Borda de /, ''), extra: '+' + reaisCurto(b.preco) };
-    })), 'sem');
+    return grupoChips('Borda', 'borda', L.bordas.map(function (b) {
+      var rot = b.nome.replace(/^Borda de /, '');
+      return { valor: b.id, rot: rot.charAt(0).toUpperCase() + rot.slice(1), extra: b.preco ? '+' + reais(b.preco) : reais(0) };
+    }), bordaPadrao());
   }
 
   function grupoObs() {
@@ -400,7 +406,7 @@
     var c = COMBO[id];
     if (!comboValido(c)) return;
     quemAbriu = botao || null;
-    escolha = { tipo: 'combo', id: id, fatias: [], meio: [], bebida: c.bebidas[0], borda: null, obs: '', qtd: 1 };
+    escolha = { tipo: 'combo', id: id, fatias: [], meio: [], bebida: c.bebidas[0], borda: bordaPadrao(), obs: '', qtd: 1 };
     for (var g = 0; g < c.grandes; g++) { escolha.fatias.push([]); escolha.meio.push(false); }
 
     $('#folhaSobre').textContent = 'Combo · ' + reaisCurto(c.preco);
@@ -424,7 +430,7 @@
     var s = SABOR[id];
     if (!avulso(s)) return;
     quemAbriu = botao || null;
-    escolha = { tipo: 'pizza', id: id, tamanho: 'grande', fatias: [[id]], meio: [false], bebida: null, borda: null, obs: '', qtd: 1 };
+    escolha = { tipo: 'pizza', id: id, tamanho: 'grande', fatias: [[id]], meio: [false], bebida: null, borda: s.tipo === 'salgada' ? bordaPadrao() : null, obs: '', qtd: 1 };
     var broto = precoBroto(s);
 
     $('#folhaSobre').textContent = 'Grande ' + reaisCurto(s.preco) + (broto ? ' · broto ' + reaisCurto(broto) : '');
@@ -485,16 +491,21 @@
       var soGrande = $('[data-so-grande]');
       soGrande.hidden = t.value === 'broto';
       if (t.value === 'broto') {
-        /* Volta tudo que é só da grande pro padrão, na tela e na escolha. */
+        /* Broto não tem meio a meio nem borda: volta a tela pro inteira e
+           tira a borda da escolha. */
         escolha.meio[0] = false; escolha.fatias[0].length = 1; escolha.borda = null;
-        $$('input[value="inteira"], input[value="sem"]', soGrande).forEach(function (x) { x.checked = true; });
+        $$('input[value="inteira"]', soGrande).forEach(function (x) { x.checked = true; });
         var metade = $('[data-metade="0"]', soGrande);
         if (metade) metade.hidden = true;
+      } else {
+        /* De volta pra grande, a borda que está marcada volta a valer. */
+        var bordaMarcada = $('input[name="borda"]:checked', soGrande);
+        escolha.borda = bordaMarcada ? bordaMarcada.value : null;
       }
     } else if (t.name === 'bebida') {
       escolha.bebida = t.value;
     } else if (t.name === 'borda') {
-      escolha.borda = t.value === 'sem' ? null : t.value;
+      escolha.borda = t.value;
     }
     atualizarAnotar();
   });

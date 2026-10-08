@@ -148,12 +148,12 @@ window.LABELLA = {
     { id: 'crystal-latao', nome: 'Crystal latão', preco: 370 }
   ],
 
-  /* Borda: PROVISÓRIO. O MenuDino tem "Borda catupiry R$ 7" numa categoria
-     própria; o cliente não soube dizer (06/10). As outras sete bordas do
-     MenuDino vêm misturadas com ketchup e molho de ostras, num modelo que
-     parece genérico, e ficam de fora. Só na grande. */
+  /* Borda: o cliente pediu em 08/10 (via Gabriel). A de catupiry não é
+     cobrada e é a que já vem marcada, no lugar do "sem borda". A de cheddar
+     é o adicional, R$ 7. Só na grande salgada e nos combos. */
   bordas: [
-    { id: 'catupiry', nome: 'Borda de catupiry', preco: 700 }
+    { id: 'catupiry', nome: 'Borda de catupiry', preco: 0 },
+    { id: 'cheddar', nome: 'Borda de cheddar', preco: 700 }
   ],
 
   /* Meio a meio só na grande, cobrando pelo sabor mais caro (regra do
